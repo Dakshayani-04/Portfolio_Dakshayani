@@ -703,6 +703,81 @@ const siteData = {
   ],
 
   // ----------------------------------------------------------------------------
+  // 9.5 BLOG POSTS
+  // ----------------------------------------------------------------------------
+  // Short articles showcasing your thought process, learnings, and experiences.
+  // Add new posts at the top (newest first).
+  blogPosts: [
+    {
+      id: "rag-search-engine",
+      title: "How I Built a Hybrid RAG Search Engine from Scratch",
+      date: "Sep 2026",
+      readTime: "5 min read",
+      tags: ["AI/ML", "RAG", "Python"],
+      excerpt: "Traditional search fails at understanding context. I combined vector embeddings with BM25 keyword matching to build a search engine that actually understands what you're looking for.",
+      content: `<p>When I first started exploring Retrieval-Augmented Generation, I realized that neither pure keyword search nor pure vector search alone could deliver truly relevant results.</p>
+        <h4>The Problem</h4>
+        <p>Keyword search (BM25) is great at exact matches — if you search for "Python decorator", it finds documents with those exact words. But it completely misses documents about "function wrappers in Python" that are semantically identical.</p>
+        <p>Vector search understands meaning but sometimes misses exact terms that matter. Search for "error code 404" and it might return documents about "server errors" in general.</p>
+        <h4>My Approach: Hybrid Fusion</h4>
+        <p>I built a pipeline that runs both searches in parallel and fuses the results using Reciprocal Rank Fusion (RRF). This gives you the best of both worlds — semantic understanding AND keyword precision.</p>
+        <h4>Key Learnings</h4>
+        <ul>
+          <li>Chunking strategy matters more than the embedding model</li>
+          <li>Overlap between chunks prevents context loss at boundaries</li>
+          <li>Re-ranking with a cross-encoder dramatically improves top-5 accuracy</li>
+        </ul>
+        <p>The result? A search engine that feels almost magical — it understands what you mean, not just what you type.</p>`
+    },
+    {
+      id: "intern-to-fullstack",
+      title: "From Web Dev Intern to Full-Stack Developer: My 12-Month Journey",
+      date: "Aug 2026",
+      readTime: "4 min read",
+      tags: ["Career", "Full-Stack", "Growth"],
+      excerpt: "What I learned in 12 months at Technical Hub — from struggling with React state management to shipping two production-ready applications.",
+      content: `<p>When I joined Technical Hub as an intern in May 2025, I could build basic HTML/CSS pages. Twelve months later, I shipped TechNexus — a full Jira-style ticket tracker with React, Node.js, and MongoDB.</p>
+        <h4>Month 1-3: The Struggle Phase</h4>
+        <p>React's component lifecycle confused me. State management felt like black magic. I remember spending an entire day debugging a useEffect that ran in an infinite loop — turns out I forgot the dependency array.</p>
+        <h4>Month 4-7: The Click Moment</h4>
+        <p>Everything clicked when I started building EcoVana. Instead of following tutorials, I was solving real problems. How do I fetch weather data for a user's location? How do I make the UI responsive? Each problem taught me more than any course could.</p>
+        <h4>Month 8-12: Building with Confidence</h4>
+        <p>By the time I started TechNexus, I wasn't just coding — I was architecting. I designed the database schema, planned the API routes, and built the frontend from scratch. The Agile workflow, Git branching, and code reviews became second nature.</p>
+        <h4>My Advice to Fellow Students</h4>
+        <ul>
+          <li>Don't just learn frameworks — build things that solve problems you care about</li>
+          <li>Read error messages carefully — they're actually trying to help you</li>
+          <li>Git is your best friend. Commit often, branch wisely</li>
+          <li>The imposter syndrome never fully goes away — and that's okay</li>
+        </ul>`
+    },
+    {
+      id: "leetcode-lessons",
+      title: "What 150+ LeetCode Problems Taught Me Beyond DSA",
+      date: "Jul 2026",
+      readTime: "3 min read",
+      tags: ["DSA", "LeetCode", "Problem Solving"],
+      excerpt: "LeetCode isn't just about solving puzzles — it rewired how I think about breaking down complex problems in real-world projects too.",
+      content: `<p>At 150+ problems solved and a contest rating of 1563, LeetCode has taught me far more than data structures and algorithms.</p>
+        <h4>Lesson 1: Read Before You Code</h4>
+        <p>I used to jump straight into coding. Now I spend 60% of my time understanding the problem and planning my approach. This habit saved me countless hours in real projects too.</p>
+        <h4>Lesson 2: Patterns > Memorization</h4>
+        <p>There are maybe 15-20 core patterns (sliding window, two pointers, BFS/DFS, dynamic programming). Once you recognize the pattern, the solution almost writes itself.</p>
+        <h4>Lesson 3: Time Complexity is a Mindset</h4>
+        <p>After grinding LeetCode, I instinctively think about the efficiency of my code in real projects. Is this nested loop necessary? Can I use a hash map instead? This thinking makes me a better engineer.</p>
+        <h4>Lesson 4: Consistency Beats Intensity</h4>
+        <p>My 50 Days Badge wasn't earned by solving 10 problems in one day. It was one problem a day, every day. The same applies to any skill — consistent small efforts compound into massive results.</p>
+        <h4>My Strategy</h4>
+        <ul>
+          <li>Start with Easy problems to build confidence</li>
+          <li>Move to Medium after solving 30+ Easy</li>
+          <li>Focus on one pattern per week</li>
+          <li>Always write the brute force first, then optimize</li>
+        </ul>`
+    }
+  ],
+
+  // ----------------------------------------------------------------------------
   // 10. CONTACT, SOCIALS & EMAIL DISPATCH
   // ----------------------------------------------------------------------------
   // Communication channels, availability indicator, and EmailJS configuration.

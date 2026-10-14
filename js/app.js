@@ -22,6 +22,7 @@
     renderCertifications();
     renderCompetitiveProgramming();
     renderContactInfo();
+    renderBlog();
     initContactForm();
     initProjectModal();
     initCertLightbox();
@@ -661,6 +662,70 @@
         `).join('')}
       </div>
     `;
+  }
+
+  /* ==========================================
+     RENDER: BLOG
+     ========================================== */
+  function renderBlog() {
+    const grid = document.getElementById('blog-grid');
+    if (!grid || !siteData || !siteData.blogPosts) return;
+
+    siteData.blogPosts.forEach(post => {
+      const card = document.createElement('div');
+      card.className = 'blog-card';
+      card.innerHTML = `
+        <div class="blog-date">${post.date} · ${post.readTime}</div>
+        <h3 class="blog-title">${post.title}</h3>
+        <p class="blog-excerpt">${post.excerpt}</p>
+        <div class="blog-tags">
+          ${post.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+        </div>
+        <span class="blog-read-more">Read Article →</span>
+      `;
+      card.addEventListener('click', () => openBlogModal(post.id));
+      grid.appendChild(card);
+    });
+
+    refreshCursorTargets();
+  }
+
+  window.openBlogModal = function (postId) {
+    const modal = document.getElementById('blog-modal');
+    const content = modal.querySelector('.modal-content');
+    const post = siteData.blogPosts.find(p => p.id === postId);
+    if (!post || !modal) return;
+
+    content.innerHTML = `
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+      <div class="blog-modal-date">
+        <span>${post.date}</span>
+        <span>${post.readTime}</span>
+        ${post.tags.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+      </div>
+      <h2 class="blog-modal-title">${post.title}</h2>
+      <div class="blog-modal-body">
+        ${post.content}
+      </div>
+    `;
+
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    const closeBtn = content.querySelector('.modal-close');
+    closeBtn.addEventListener('click', closeBlogModal);
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeBlogModal();
+    });
+    document.addEventListener('keydown', function handler(e) {
+      if (e.key === 'Escape') { closeBlogModal(); document.removeEventListener('keydown', handler); }
+    });
+  };
+
+  function closeBlogModal() {
+    const modal = document.getElementById('blog-modal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   /* ==========================================
