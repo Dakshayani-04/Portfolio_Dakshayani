@@ -719,9 +719,9 @@ const siteData = {
       text: "Open to Internships & Full-Time Roles (2027)"
     },
     // EmailJS Credentials for portfolio contact form submission
-    formServiceId: "[ADD_EMAILJS_SERVICE_ID]",
-    formTemplateId: "[ADD_EMAILJS_TEMPLATE_ID]",
-    formPublicKey: "[ADD_EMAILJS_PUBLIC_KEY]",
+    formServiceId: "service_2ga1ydm",
+    formTemplateId: "template_a4csh3s",
+    formPublicKey: "CIoag3VRbnD-lAmC5",
     codingProfiles: [
       {
         name: "LeetCode",
