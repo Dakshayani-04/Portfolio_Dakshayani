@@ -1476,6 +1476,13 @@ p {
   transition: all var(--transition-smooth);
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .blog-card {
+  background: #ffffff;
+  border: 1px solid rgba(13, 148, 136, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .blog-card:hover {
@@ -1483,6 +1490,11 @@ p {
   border-color: var(--accent);
   transform: translateY(-6px);
   box-shadow: var(--shadow-glow);
+}
+
+[data-theme="light"] .blog-card:hover {
+  background: #f0fdfa;
+  box-shadow: 0 8px 30px rgba(13, 148, 136, 0.15);
 }
 
 .blog-card .blog-date {
